@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/mainContainer">
+
+        <android.support.design.widget.AppBarLayout
+                android:id="@+id/appbar"
+                android:background="@color/toolbarColor"
+                android:layout_height="50dp"
+                android:layout_width="match_parent">
+            <android.support.design.widget.CollapsingToolbarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:toolbarId="@+id/toolbar"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                    app:contentScrim="?attr/colorPrimary">
+                <android.support.v7.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_width="match_parent"
+                        app:contentInsetStart="0dp">
+                    <android.support.constraint.ConstraintLayout android:layout_width="match_parent"
+                                                                 android:layout_height="match_parent">
+
+                        <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="27dp"
+                                app:srcCompat="@drawable/logo"
+                                android:id="@+id/imgLogo" app:layout_constraintStart_toEndOf="@+id/imgTabCamera"
+                                app:layout_constraintEnd_toStartOf="@+id/imgTabDirectMessage"
+                                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="4dp"
+                                app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="4dp"
+                                android:layout_marginStart="8dp"/>
+                        <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" app:srcCompat="@drawable/tab_camera"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/imgTabCamera"
+                                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                                android:layout_marginTop="4dp" android:layout_marginBottom="8dp"
+                        />
+                        <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@drawable/tab_direct_message"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginBottom="8dp"
+                                android:id="@+id/imgTabDirectMessage" app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginEnd="8dp" android:layout_marginTop="4dp"
+                                app:layout_constraintTop_toTopOf="parent"/>
+                        <View
+                                android:layout_width="wrap_content"
+                                android:layout_height="2dp"
+                                android:background="@color/lineColor"
+                                android:id="@+id/topLineView"
+                                android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.Toolbar>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+        <android.support.v4.view.ViewPager
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/homeViewPager"
+                app:layout_constraintBottom_toTopOf="@id/bottomLineView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/appbar">
+        </android.support.v4.view.ViewPager>
+        <View
+                android:id="@+id/bottomLineView"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:background="@color/lineColor"
+                app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:menu="@menu/bottom_navigation_menu"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/homeViewPager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/bottomNavigationView"/>
+    </android.support.constraint.ConstraintLayout>
+</android.support.design.widget.CoordinatorLayout>
